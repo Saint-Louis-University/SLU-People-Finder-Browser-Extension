@@ -1,0 +1,48 @@
+{
+
+  "manifest_version": 2,
+  
+  "name": "SLU People Finder",
+  
+  "version": "1.0",
+  
+  "author": "Matt Schuelke",
+  
+  "description": "Search SLU People Finder Faster",
+  
+  "homepage_url": "https://www.themadstatter.com/slu/webextensions/slu-people-finder",
+  
+  "icons": {
+    "48": "icons/slu-people-finder-48.png"
+  },
+  
+  "applications": {
+    "gecko": {
+      "id": "slu-people-finder@themadstatter.com",
+      "strict_min_version": "50.0",
+	  "update_url": "https://www.themadstatter.com/slu/webextensions/slu-people-finder/firefox/updates.json"
+    }
+  },
+
+  "permissions": [
+    "activeTab",
+	"https://www.slu.edu/peoplefinder/json/json_index.php",
+	"webRequest"
+  ],
+
+  "browser_action": {
+    "browser_style": false,
+    "default_icon": "icons/slu-people-finder-48.png",
+	"default_title": "SLU People Finder",
+	"default_popup": "popup/search.htm"
+  },
+  
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+P"
+      }
+    }
+  }
+  
+}
