@@ -1,6 +1,6 @@
 # SLU-People-Finder-Browser-Extension
 
-Browser extension to search People Finder faster
+Browser extension to search [People Finder](https://www.slu.edu/peoplefinder) faster
 
 **Goal** 
 
@@ -13,7 +13,6 @@ To provide a faster, more efficient way to search People Finder in Firefox and C
 
 **Prerequisites**
 
-For install:
 * Firefox 50.0
 * Chrome 21.0
 
