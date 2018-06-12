@@ -4,7 +4,7 @@
   
   "name": "SLU People Finder",
   
-  "version": "1.0",
+  "version": "2.0",
   
   "author": "Matt Schuelke",
   
@@ -19,15 +19,21 @@
   "applications": {
     "gecko": {
       "id": "slu-people-finder@themadstatter.com",
-      "strict_min_version": "50.0",
+      "strict_min_version": "52.0",
 	  "update_url": "https://www.themadstatter.com/slu/webextensions/slu-people-finder/firefox/updates.json"
     }
+  },
+  
+  "options_ui": {
+	"page": "preferences/preferences.htm"
   },
 
   "permissions": [
     "activeTab",
 	"https://www.slu.edu/peoplefinder/json/json_index.php",
-	"webRequest"
+	"webRequest",
+	"storage", 
+	"clipboardWrite"
   ],
 
   "browser_action": {

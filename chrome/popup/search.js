@@ -1,8 +1,19 @@
+function setClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+
 display_results = function(json) {
 	$('#results_table tbody').empty();
 	$('#results').show();
-	
+
 	var n_rows_skipped = 0;
+	var is_first_row = true;
 	
 	for(i=0; i < json.resultSet.result.length; i++) {
 		var fullname = "";
@@ -39,36 +50,38 @@ display_results = function(json) {
 			dept = school_year[0].trim();
 			title = school_year[1].trim();
 		}
+		
 		if(affiliation == "Faculty/Staff") {
 			affiliation = "Fac/Staff";
 		}
 		
+		// skip remaining part of loop if search is for fac/staff and result is student
 		if($('#faculty_staff_only').prop('checked') && affiliation == "Student") {
 			n_rows_skipped++;
 			continue;
 		}
-				
-		if ((i - n_rows_skipped) % 2 == 0){
-            $('#results_table > tbody:last-child').append('<tr class="even-row">' + 
-		                                            '<td id="fullname-cell">' + fullname + '</td>' + 
-		                                            '<td id="title-cell">' + title + '</td>' + 
-												    '<td id="dept-cell">' + dept + '</td>' + 
-												    '<td id="affiliation-cell">' + affiliation + '</td>' + 
-												    '<td id="email-cell"><a href="mailto:' + email + '" target="_blank">' + email + '</a></td>' + 
-												    '<td id="telephone-cell">' + telephone + '</td>' + 
-												    '<td id="office-cell">' + office + '</td>' + 
-												    '</tr>');
-        } else {
-			$('#results_table > tbody:last-child').append('<tr class="odd-row">' + 
-		                                            '<td id="fullname-cell">' + fullname + '</td>' + 
-		                                            '<td id="title-cell">' + title + '</td>' + 
-												    '<td id="dept-cell">' + dept + '</td>' + 
-												    '<td id="affiliation-cell">' + affiliation + '</td>' + 
-												    '<td id="email-cell"><a href="mailto:' + email + '" target="_blank">' + email + '</a></td>' + 
-												    '<td id="telephone-cell">' + telephone + '</td>' + 
-												    '<td id="office-cell">' + office + '</td>' + 
-												    '</tr>');
-        }
+		
+		// assign row to either even or odd class
+		var row_parity = "even";
+		if ((i - n_rows_skipped) % 2 != 0)
+			row_parity = "odd";
+		
+		// copy first email (or not)
+		if(is_first_row) {
+			if(do_copy_email)
+				setClipboard(email);
+			is_first_row = false;
+		}
+			
+		$('#results_table > tbody:last-child').append('<tr class="' + row_parity + '-row">' + 
+		                                              '<td class="fullname-cell">' + fullname + '</td>' + 
+		                                              '<td class="title-cell">' + title + '</td>' + 
+												      '<td class="dept-cell">' + dept + '</td>' + 
+												      '<td class="affiliation-cell">' + affiliation + '</td>' + 
+												      '<td class="email-cell"><a href="mailto:' + email + '" target="_blank">' + email + '</a></td>' + 
+												      '<td class="telephone-cell">' + telephone + '</td>' + 
+												      '<td class="office-cell">' + office + '</td>' + 
+												      '</tr>');
 	}
 }
 
@@ -87,15 +100,26 @@ do_clear = function() {
 	$('#search_text').focus();
 }
 
-$('#search_button').click(do_search);
+$( document ).ready(function () {
+	chrome.storage.sync.get("isDefaultFacStaff", function(storageObject) {
+		var isDefaultFacStaff = typeof storageObject.isDefaultFacStaff !== "undefined" ? storageObject.isDefaultFacStaff : true;
+		$('#faculty_staff_only').prop("checked", isDefaultFacStaff);
+	});
+	
+	chrome.storage.sync.get("doCopyFirstEmail", function(storageObject) {
+		var doCopyFirstEmail = typeof storageObject.doCopyFirstEmail !== "undefined" ? storageObject.doCopyFirstEmail : false;
+		do_copy_email = doCopyFirstEmail;
+	});
+	
+	$('#search_button').click(do_search);
 
-$('#clear_button').click(do_clear);
+	$('#clear_button').click(do_clear);
 
-$('#search_text').keypress(function(e) {
-	if(e.which == 13) {
-		do_search();
-	}
+	$('#search_text').keypress(function(e) {
+		if(e.which == 13) {
+			do_search();
+		}
+	});
+	
+	$('#search_text').focus();
 });
-
-// work around to https://bugzilla.mozilla.org/show_bug.cgi?id=1324255
-setTimeout(() => { document.querySelector('#search_text').focus(); }, 100);

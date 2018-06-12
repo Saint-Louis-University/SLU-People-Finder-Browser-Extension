@@ -1,0 +1,16 @@
+form {
+	width: 400px;
+	height: 125px;
+	overflow: visible;
+	padding-left: 5px;
+}
+
+div {
+	font-family: "Tahoma";
+	padding-bottom: 10px;
+}
+
+input {
+	position: absolute;
+	left: 375px;
+}

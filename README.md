@@ -13,7 +13,7 @@ To provide a faster, more efficient way to search People Finder in Firefox and C
 
 **Prerequisites**
 
-* Firefox 50.0
+* Firefox 52.0
 * Chrome 21.0
 
 ## Getting Started
