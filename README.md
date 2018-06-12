@@ -18,7 +18,7 @@ To provide a faster, more efficient way to search People Finder in Firefox and C
 
 ## Getting Started
 
-* Firefox version is registered with Mozilla and hosted on my [website](https://www.themadstatter.com/slu/webextensions/slu-people-finder).
+* Firefox version is registered with Mozilla and hosted [here](https://www.themadstatter.com/slu/webextensions/slu-people-finder).
 
 * Chrome version is hosted on the [Chrome Webstore](https://chrome.google.com/webstore/detail/slu-people-finder/iokfgmiafmjifmpnahdecmhgbbgdaikc?hl=en).
 
