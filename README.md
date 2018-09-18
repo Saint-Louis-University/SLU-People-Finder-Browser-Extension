@@ -10,6 +10,7 @@ To provide a faster, more efficient way to search People Finder in Firefox and C
 
 * [MDN webdocs - Browser Extensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions)
 * [Chrome Developer's Guide](https://developer.chrome.com/extensions/devguide)
+* [Apache Ant](https://ant.apache.org)
 
 **Prerequisites**
 
@@ -18,9 +19,9 @@ To provide a faster, more efficient way to search People Finder in Firefox and C
 
 ## Getting Started
 
-* Firefox version is registered with Mozilla and hosted [here](https://www.themadstatter.com/slu/webextensions/slu-people-finder).
+* Firefox version is registered with Mozilla and hosted [here](https://addons.mozilla.org/en-US/firefox/addon/slu-people-finder).
 
-* Chrome version is hosted on the [Chrome Webstore](https://chrome.google.com/webstore/detail/slu-people-finder/iokfgmiafmjifmpnahdecmhgbbgdaikc?hl=en).
+* Chrome version is hosted on the [Chrome Webstore](https://chrome.google.com/webstore/detail/slu-people-finder/iokfgmiafmjifmpnahdecmhgbbgdaikc).
 
 ## Resources
 
@@ -32,4 +33,4 @@ There is a bug in recent versions of Firefox that does not allow the pop-up wind
 
 ## Authors / Owners
 
-[Matt Schuelke](mailto:matthew.schuelke@slu.edu)
+[Matthew Schuelke](mailto:schuelkem@slu.edu)

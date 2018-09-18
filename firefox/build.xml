@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="slu-people-finder" basedir="." default="zip">
+
+    <property name="src.dir" value="src"/>
+    <property name="bin.dir" value="bin"/>
+
+    <target name="clean" description="Delete all generated files">
+        <delete dir="${bin.dir}" failonerror="false"/>
+    </target>
+
+    <target name="zip" description="Compress files to unsigned zip" depends="clean">
+        <zip destfile="${bin.dir}/${ant.project.name}.zip" basedir="${src.dir}"/>
+    </target>
+
+</project>
