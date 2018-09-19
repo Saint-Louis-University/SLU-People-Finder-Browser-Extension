@@ -1,6 +1,6 @@
 # SLU People Finder Browser Extension
 
-Browser extension to search [People Finder](https://www.slu.edu/peoplefinder) faster
+Firefox or Chrome browser extension to search [People Finder](https://www.slu.edu/peoplefinder) faster
 
 **Goal** 
 
