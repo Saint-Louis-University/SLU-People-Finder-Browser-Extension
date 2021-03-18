@@ -4,7 +4,7 @@
   
   "name": "SLU People Finder",
   
-  "version": "2.0",
+  "version": "2.1",
   
   "author": "Matthew Schuelke",
   
@@ -20,7 +20,7 @@
 
   "permissions": [
     "activeTab",
-	"https://www.slu.edu/peoplefinder/json/json_index.php",
+	"https://archive.slu.edu/peoplefinder/json/json_index.php",
 	"webRequest", 
 	"storage", 
 	"clipboardWrite"
