@@ -30,9 +30,7 @@
   },
 
   "permissions": [
-    "activeTab",
 	"https://archive.slu.edu/peoplefinder/json/json_index.php",
-	"webRequest",
 	"storage", 
 	"clipboardWrite"
   ],
