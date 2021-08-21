@@ -87,7 +87,7 @@ display_results = function(json) {
 
 do_search = function() {
 	var query_string = $('#search_text').val();
-	var base_url = 'https://archive.slu.edu/peoplefinder/json/json_index.php?q=';
+	var base_url = 'https://ws.slu.edu/peoplefinder/json/json_index.php?q=';
 	var req_url = base_url.concat(query_string);
 	$.getJSON(req_url, display_results);
 	$('#search_text').focus();
